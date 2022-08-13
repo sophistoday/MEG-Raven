@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 八月 06, 2022, at 15:58
+    on 八月 13, 2022, at 11:11
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Desktop\\meg_raven\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
+    originPath='D:\\Documents\\GitHub\\CNL\\MEG-RAVEN\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -103,7 +103,6 @@ stimMark = 2
 respMark = 4
 currentLoopNumber=-1
 current_path = os.getcwd()  #获取当前路径
-print(current_path)
 path = current_path+'\\'+expInfo['participant']+'run.txt' #在当前路径创建名为test的文本文件
 if os.path.exists(path):
     run_file=open(path, 'r+')
@@ -113,13 +112,9 @@ if os.path.exists(path):
     for i in range(10):
        idx_final.append([int(j) for j in run_file.readline().split(',')])
     idx_final=np.array(idx_final)
-    while True:
-        line = run_file.readline()
-        if line == '':
-            break
-        run_num_orig = int(line)
-    run_num=run_num_orig
-    print(run_num_orig)
+    
+    run_num=int(expInfo['runID'])
+    
         
 else:
     
@@ -416,7 +411,7 @@ port.setData(0)
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=2.0, method='sequential', 
+trials = data.TrialHandler(nReps=12.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
     seed=None, name='trials')
@@ -941,7 +936,7 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 2.0 repeats of 'trials'
+# completed 12.0 repeats of 'trials'
 
 
 # ------Prepare to start Routine "middle_rest"-------
