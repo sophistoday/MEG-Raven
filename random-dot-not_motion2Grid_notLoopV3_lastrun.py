@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 八月 06, 2022, at 15:58
+    on 八月 13, 2022, at 10:58
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Desktop\\meg_raven\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
+    originPath='D:\\Documents\\GitHub\\MEG-Raven\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -416,7 +416,7 @@ port.setData(0)
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=2.0, method='sequential', 
+trials = data.TrialHandler(nReps=18.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
     seed=None, name='trials')
@@ -941,7 +941,7 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 2.0 repeats of 'trials'
+# completed 18.0 repeats of 'trials'
 
 
 # ------Prepare to start Routine "middle_rest"-------
