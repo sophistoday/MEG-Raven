@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 八月 13, 2022, at 11:19
+    on 九月 27, 2022, at 19:20
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Documents\\GitHub\\CNL\\MEG-RAVEN\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
+    originPath='D:\\Documents\\GitHub\\CNL1\\MEG-Raven\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -103,7 +103,7 @@ stimMark = 2
 respMark = 4
 currentLoopNumber=-1
 current_path = os.getcwd()  #获取当前路径
-#print(current_path)
+print(current_path)
 path = current_path+'\\'+expInfo['participant']+'run.txt' #在当前路径创建名为test的文本文件
 if os.path.exists(path):
     run_file=open(path, 'r+')
@@ -113,14 +113,13 @@ if os.path.exists(path):
     for i in range(10):
        idx_final.append([int(j) for j in run_file.readline().split(',')])
     idx_final=np.array(idx_final)
-#    while True:
-#        line = run_file.readline()
-#        if line == '':
-#            break
-#        run_num_orig = int(line)
-#    run_num=run_num_orig
-#    print(run_num_orig)
-    run_num=int(expInfo['runID'])
+    while True:
+        line = run_file.readline()
+        if line == '':
+            break
+        run_num_orig = int(line)
+    run_num=run_num_orig
+    print(run_num_orig)
         
 else:
     
@@ -183,7 +182,7 @@ np.random.shuffle(answer_lst)
 restClock = core.Clock()
 fixation_1 = visual.ShapeStim(
     win=win, name='fixation_1',units='deg', 
-    size=(0.23, 0.23), vertices='circle',
+    size=(0.20, 0.20), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='crimson', fillColor='crimson',
     opacity=None, depth=0.0, interpolate=True)
@@ -266,7 +265,7 @@ answer1 = visual.ImageStim(
     win=win,
     name='answer1', units='deg', 
     image='run1/target0_0.jpg', mask=None,
-    ori=0.0, pos=(-2.5, 0), size=(4, 4),
+    ori=0.0, pos=(-4.5, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-10.0)
@@ -274,38 +273,43 @@ answer2 = visual.ImageStim(
     win=win,
     name='answer2', units='deg', 
     image='run1/target0_0.jpg', mask=None,
-    ori=0.0, pos=(2.5, 0), size=(4, 4),
+    ori=0.0, pos=(0, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-11.0)
+answer3 = visual.ImageStim(
+    win=win,
+    name='answer3', units='deg', 
+    image=None, mask=None,
+    ori=0.0, pos=(4.5, 0), size=(4, 4),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-12.0)
 key_resp = keyboard.Keyboard()
 fixation1 = visual.ShapeStim(
     win=win, name='fixation1',units='deg', 
-    size=(0.23, 0.23), vertices='circle',
-    ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='burlywood', fillColor='burlywood',
-    opacity=None, depth=-13.0, interpolate=True)
-fixation2 = visual.ShapeStim(
-    win=win, name='fixation2',units='deg', 
-    size=(0.23, 0.23), vertices='circle',
+    size=(0.20, 0.20), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='burlywood', fillColor='burlywood',
     opacity=None, depth=-14.0, interpolate=True)
-fixation3 = visual.ShapeStim(
-    win=win, name='fixation3',units='deg', 
-    size=(0.23, 0.23), vertices='circle',
+fixation2 = visual.ShapeStim(
+    win=win, name='fixation2',units='deg', 
+    size=(0.20, 0.20), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='burlywood', fillColor='burlywood',
     opacity=None, depth=-15.0, interpolate=True)
-fixation4 = visual.ShapeStim(
-    win=win, name='fixation4',units='deg', 
-    size=(0.23, 0.23), vertices='circle',
+fixation3 = visual.ShapeStim(
+    win=win, name='fixation3',units='deg', 
+    size=(0.20, 0.20), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='burlywood', fillColor='burlywood',
     opacity=None, depth=-16.0, interpolate=True)
-
-# Initialize components for Routine "middle_rest"
-middle_restClock = core.Clock()
+fixation4 = visual.ShapeStim(
+    win=win, name='fixation4',units='deg', 
+    size=(0.20, 0.20), vertices='circle',
+    ori=0.0, pos=(0, 0),
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='mediumseagreen', fillColor='mediumseagreen',
+    opacity=None, depth=-17.0, interpolate=True)
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -417,7 +421,7 @@ port.setData(0)
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=18.0, method='sequential', 
+trials = data.TrialHandler(nReps=2.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
     seed=None, name='trials')
@@ -527,6 +531,7 @@ for thisTrial in trials:
     
     answer1.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(rand_idx)+'.jpg')
     answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')
+    answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')
     if rand_idx==0:
         corrAns='left'
     else:
@@ -535,7 +540,7 @@ for thisTrial in trials:
     key_resp.rt = []
     _key_resp_allKeys = []
     # keep track of which components have finished
-    trialComponents = [problem0, problem1, problem2, problem3, problem4, problem5, problem6, problem7, answer, answer1, answer2, key_resp, fixation1, fixation2, fixation3, fixation4]
+    trialComponents = [problem0, problem1, problem2, problem3, problem4, problem5, problem6, problem7, answer, answer1, answer2, answer3, key_resp, fixation1, fixation2, fixation3, fixation4]
     for thisComponent in trialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -710,30 +715,30 @@ for thisTrial in trials:
                 answer.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(answer, 'tStopRefresh')  # time at next scr refresh
                 answer.setAutoDraw(False)
-        if problem0.status == STARTED:
-            port.setData(stimMark)
-            core.wait(0.05)
-            port.setData(0)
-            
-        if problem3.status == STARTED:
-            port.setData(stimMark)
-            core.wait(0.05)
-            port.setData(0)
-            
-        if problem6.status == STARTED:
-            port.setData(stimMark)
-            core.wait(0.05)
-            port.setData(0)
-            
-        if answer1.status == STARTED:
-            port.setData(stimMark)
-            core.wait(0.05)
-            port.setData(0)
-            
-        if len(_key_resp_allKeys):
-            port.setData(respMark)
-            core.wait(0.05)
-            port.setData(0)
+        #if problem0.status == STARTED:
+        #    port.setData(stimMark)
+        #    core.wait(0.05)
+        #    port.setData(0)
+        #    
+        #if problem3.status == STARTED:
+        #    port.setData(stimMark)
+        #    core.wait(0.05)
+        #    port.setData(0)
+        #    
+        #if problem6.status == STARTED:
+        #    port.setData(stimMark)
+        #    core.wait(0.05)
+        #    port.setData(0)
+        #    
+        #if answer1.status == STARTED:
+        #    port.setData(stimMark)
+        #    core.wait(0.05)
+        #    port.setData(0)
+        #    
+        #if len(_key_resp_allKeys):
+        #    port.setData(respMark)
+        #    core.wait(0.05)
+        #    port.setData(0)
         
         # *answer1* updates
         if answer1.status == NOT_STARTED and tThisFlip >= 15.3+rand_t1+rand_t2-frameTolerance:
@@ -768,6 +773,23 @@ for thisTrial in trials:
                 answer2.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(answer2, 'tStopRefresh')  # time at next scr refresh
                 answer2.setAutoDraw(False)
+        
+        # *answer3* updates
+        if answer3.status == NOT_STARTED and tThisFlip >= 15.3+rand_t1+rand_t2-frameTolerance:
+            # keep track of start time/frame for later
+            answer3.frameNStart = frameN  # exact frame index
+            answer3.tStart = t  # local t and not account for scr refresh
+            answer3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(answer3, 'tStartRefresh')  # time at next scr refresh
+            answer3.setAutoDraw(True)
+        if answer3.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > answer3.tStartRefresh + 2-frameTolerance:
+                # keep track of stop time/frame for later
+                answer3.tStop = t  # not accounting for scr refresh
+                answer3.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(answer3, 'tStopRefresh')  # time at next scr refresh
+                answer3.setAutoDraw(False)
         
         # *key_resp* updates
         waitOnFlip = False
@@ -915,6 +937,8 @@ for thisTrial in trials:
     trials.addData('answer1.stopped', answer1.tStopRefresh)
     trials.addData('answer2.started', answer2.tStartRefresh)
     trials.addData('answer2.stopped', answer2.tStopRefresh)
+    trials.addData('answer3.started', answer3.tStartRefresh)
+    trials.addData('answer3.stopped', answer3.tStopRefresh)
     # check responses
     if key_resp.keys in ['', [], None]:  # No response was made
         key_resp.keys = None
@@ -942,64 +966,8 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 18.0 repeats of 'trials'
+# completed 2.0 repeats of 'trials'
 
-
-# ------Prepare to start Routine "middle_rest"-------
-continueRoutine = True
-# update component parameters for each repeat
-if problem0.status == STARTED:
-    port.setData(endMark)
-    core.wait(0.05)
-    port.setData(0)
-  
-# keep track of which components have finished
-middle_restComponents = []
-for thisComponent in middle_restComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-middle_restClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-frameN = -1
-
-# -------Run Routine "middle_rest"-------
-while continueRoutine:
-    # get current time
-    t = middle_restClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=middle_restClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in middle_restComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "middle_rest"-------
-for thisComponent in middle_restComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-# the Routine "middle_rest" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting

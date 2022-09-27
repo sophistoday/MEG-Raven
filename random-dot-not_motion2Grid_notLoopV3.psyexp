@@ -309,11 +309,11 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="currentLoopNumber += 1;&amp;#10;problem0.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_0.jpg&quot;));&amp;#10;problem1.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_1.jpg&quot;));&amp;#10;problem2.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_2.jpg&quot;));&amp;#10;problem3.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_3.jpg&quot;));&amp;#10;problem4.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_4.jpg&quot;));&amp;#10;problem5.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_5.jpg&quot;));&amp;#10;problem6.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_6.jpg&quot;));&amp;#10;problem7.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_7.jpg&quot;));&amp;#10;rand_t1 = (util.randint((- 1), 2) * 0.25);&amp;#10;rand_t2 = (util.randint((- 1), 2) * 0.25);&amp;#10;rand_idx = Number.parseInt(answer_lst[currentLoopNumber]);&amp;#10;answer1.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + rand_idx.toString()) + &quot;.jpg&quot;));&amp;#10;answer2.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + (1 - rand_idx).toString()) + &quot;.jpg&quot;));&amp;#10;if ((rand_idx === 0)) {&amp;#10;    corrAns = &quot;left&quot;;&amp;#10;} else {&amp;#10;    corrAns = &quot;right&quot;;&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="currentLoopNumber += 1&amp;#10;#print('num:',run_num)&amp;#10;#print('lst:',run_lst[run_num])&amp;#10;#print(str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber]))&amp;#10;problem0.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_0.jpg')&amp;#10;problem1.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_1.jpg')&amp;#10;problem2.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_2.jpg')&amp;#10;problem3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')&amp;#10;problem4.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')&amp;#10;problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')&amp;#10;problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_6.jpg')&amp;#10;problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_7.jpg')&amp;#10;rand_t1 = randint(-1,2)*0.25&amp;#10;rand_t2 = randint(-1,2)*0.25&amp;#10;rand_idx = int(answer_lst[currentLoopNumber])&amp;#10;#rand_t2 = 0&amp;#10;&amp;#10;answer1.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(rand_idx)+'.jpg')&amp;#10;answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')&amp;#10;if rand_idx==0:&amp;#10;    corrAns='left'&amp;#10;else:&amp;#10;    corrAns = 'right'" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="currentLoopNumber += 1;&amp;#10;problem0.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_0.jpg&quot;));&amp;#10;problem1.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_1.jpg&quot;));&amp;#10;problem2.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_2.jpg&quot;));&amp;#10;problem3.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_3.jpg&quot;));&amp;#10;problem4.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_4.jpg&quot;));&amp;#10;problem5.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_5.jpg&quot;));&amp;#10;problem6.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_6.jpg&quot;));&amp;#10;problem7.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_7.jpg&quot;));&amp;#10;rand_t1 = (util.randint((- 1), 2) * 0.25);&amp;#10;rand_t2 = (util.randint((- 1), 2) * 0.25);&amp;#10;rand_idx = Number.parseInt(answer_lst[currentLoopNumber]);&amp;#10;answer1.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + rand_idx.toString()) + &quot;.jpg&quot;));&amp;#10;answer2.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + (1 - rand_idx).toString()) + &quot;.jpg&quot;));&amp;#10;answer2.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + (1 - rand_idx).toString()) + &quot;.jpg&quot;));&amp;#10;if ((rand_idx === 0)) {&amp;#10;    corrAns = &quot;left&quot;;&amp;#10;} else {&amp;#10;    corrAns = &quot;right&quot;;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="currentLoopNumber += 1&amp;#10;#print('num:',run_num)&amp;#10;#print('lst:',run_lst[run_num])&amp;#10;#print(str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber]))&amp;#10;problem0.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_0.jpg')&amp;#10;problem1.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_1.jpg')&amp;#10;problem2.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_2.jpg')&amp;#10;problem3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')&amp;#10;problem4.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')&amp;#10;problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')&amp;#10;problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_6.jpg')&amp;#10;problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_7.jpg')&amp;#10;rand_t1 = randint(-1,2)*0.25&amp;#10;rand_t2 = randint(-1,2)*0.25&amp;#10;rand_idx = int(answer_lst[currentLoopNumber])&amp;#10;#rand_t2 = 0&amp;#10;&amp;#10;answer1.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(rand_idx)+'.jpg')&amp;#10;answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')&amp;#10;answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')&amp;#10;if rand_idx==0:&amp;#10;    corrAns='left'&amp;#10;else:&amp;#10;    corrAns = 'right'" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if problem0.status == STARTED:&amp;#10;    port.setData(stimMark)&amp;#10;    core.wait(0.05)&amp;#10;    port.setData(0)&amp;#10;    &amp;#10;if problem3.status == STARTED:&amp;#10;    port.setData(stimMark)&amp;#10;    core.wait(0.05)&amp;#10;    port.setData(0)&amp;#10;    &amp;#10;if problem6.status == STARTED:&amp;#10;    port.setData(stimMark)&amp;#10;    core.wait(0.05)&amp;#10;    port.setData(0)&amp;#10;    &amp;#10;if answer1.status == STARTED:&amp;#10;    port.setData(stimMark)&amp;#10;    core.wait(0.05)&amp;#10;    port.setData(0)&amp;#10;    &amp;#10;if len(_key_resp_allKeys):&amp;#10;    port.setData(respMark)&amp;#10;    core.wait(0.05)&amp;#10;    port.setData(0)" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="if ((problem0.status === PsychoJS.Status.STARTED)) {&amp;#10;    port.setData(stimMark);&amp;#10;    core.wait(0.05);&amp;#10;    port.setData(0);&amp;#10;}&amp;#10;if ((problem3.status === PsychoJS.Status.STARTED)) {&amp;#10;    port.setData(stimMark);&amp;#10;    core.wait(0.05);&amp;#10;    port.setData(0);&amp;#10;}&amp;#10;if ((problem6.status === PsychoJS.Status.STARTED)) {&amp;#10;    port.setData(stimMark);&amp;#10;    core.wait(0.05);&amp;#10;    port.setData(0);&amp;#10;}&amp;#10;if ((answer1.status === PsychoJS.Status.STARTED)) {&amp;#10;    port.setData(stimMark);&amp;#10;    core.wait(0.05);&amp;#10;    port.setData(0);&amp;#10;}&amp;#10;if (_key_resp_allKeys.length) {&amp;#10;    port.setData(respMark);&amp;#10;    core.wait(0.05);&amp;#10;    port.setData(0);&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="#if problem0.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if problem3.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if problem6.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if answer1.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if len(_key_resp_allKeys):&amp;#10;#    port.setData(respMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
@@ -335,7 +335,7 @@
         <Param name="name" updates="None" val="answer1" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(-2.5, 0)" valType="list"/>
+        <Param name="pos" updates="constant" val="(-4.5, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
@@ -361,7 +361,7 @@
         <Param name="name" updates="None" val="answer2" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(2.5, 0)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
@@ -387,17 +387,17 @@
         <Param name="name" updates="None" val="answer3" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="pos" updates="constant" val="(4.5, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(0.5, 0.5)" valType="list"/>
+        <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="startVal" updates="None" val="$15.3+rand_t1+rand_t2" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="stopVal" updates="constant" val="2" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="texture resolution" updates="constant" val="128" valType="num"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="units" updates="None" val="deg" valType="str"/>
       </ImageComponent>
       <KeyboardComponent name="key_resp">
         <Param name="allowedKeys" updates="constant" val="'left','right'" valType="list"/>
@@ -433,7 +433,7 @@
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="None" val="circle" valType="str"/>
-        <Param name="size" updates="constant" val="(0.23, 0.23)" valType="list"/>
+        <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -459,7 +459,7 @@
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="None" val="circle" valType="str"/>
-        <Param name="size" updates="constant" val="(0.23, 0.23)" valType="list"/>
+        <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="3.45" valType="code"/>
@@ -485,7 +485,7 @@
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="None" val="circle" valType="str"/>
-        <Param name="size" updates="constant" val="(0.23, 0.23)" valType="list"/>
+        <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="8.4+rand_t1" valType="code"/>
@@ -500,9 +500,9 @@
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="burlywood" valType="color"/>
+        <Param name="fillColor" updates="constant" val="mediumseagreen" valType="color"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="burlywood" valType="color"/>
+        <Param name="lineColor" updates="constant" val="mediumseagreen" valType="color"/>
         <Param name="lineWidth" updates="constant" val="1" valType="num"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
         <Param name="name" updates="None" val="fixation4" valType="code"/>
@@ -511,7 +511,7 @@
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="None" val="circle" valType="str"/>
-        <Param name="size" updates="constant" val="(0.23, 0.23)" valType="list"/>
+        <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="13.35+rand_t1+rand_t2" valType="code"/>
@@ -539,7 +539,7 @@
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="None" val="circle" valType="str"/>
-        <Param name="size" updates="constant" val="(0.23, 0.23)" valType="list"/>
+        <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -705,6 +705,5 @@
     <Routine name="rest"/>
     <Routine name="trial"/>
     <LoopTerminator name="trials"/>
-    <Routine name="middle_rest"/>
   </Flow>
 </PsychoPy2experiment>
