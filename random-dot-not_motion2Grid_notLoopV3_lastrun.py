@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 十月 15, 2022, at 16:10
+    on 十月 17, 2022, at 22:24
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -266,15 +266,14 @@ answer2 = visual.ImageStim(
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-8.0)
 key_resp = keyboard.Keyboard()
-
-# Initialize components for Routine "middle_rest"
-middle_restClock = core.Clock()
-conpensate = visual.ShapeStim(
-    win=win, name='conpensate',units='deg', 
-    size=(0.20, 0.20), vertices='circle',
-    ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='crimson', fillColor='crimson',
-    opacity=None, depth=-1.0, interpolate=True)
+conpensate_img = visual.ImageStim(
+    win=win,
+    name='conpensate_img', 
+    image=None, mask=None,
+    ori=0.0, pos=(0, 0), size=(0.5, 0.5),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-10.0)
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -491,8 +490,8 @@ for thisTrial in trials:
     #problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')
     problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')
     problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')
-    rand_t1 = int(time_lst[run_num,currentLoopNumber,0])*0.25
-    rand_t2 = int(time_lst[run_num,currentLoopNumber,1])*0.25
+    rand_t1 = int(time_lst[run_num,currentLoopNumber,0])*0.5
+    rand_t2 = int(time_lst[run_num,currentLoopNumber,1])*0.5
     rand_idx = int(answer_lst[currentLoopNumber])
     #rand_t2 = 0
     
@@ -507,7 +506,7 @@ for thisTrial in trials:
     key_resp.rt = []
     _key_resp_allKeys = []
     # keep track of which components have finished
-    trialComponents = [problem0, problem1, problem2, problem6, problem7, answer, answer1, answer2, key_resp]
+    trialComponents = [problem0, problem1, problem2, problem6, problem7, answer, answer1, answer2, key_resp, conpensate_img]
     for thisComponent in trialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -531,7 +530,7 @@ for thisTrial in trials:
         # update/draw components on each frame
         
         # *problem0* updates
-        if problem0.status == NOT_STARTED and tThisFlip >= 0.45-frameTolerance:
+        if problem0.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
             # keep track of start time/frame for later
             problem0.frameNStart = frameN  # exact frame index
             problem0.tStart = t  # local t and not account for scr refresh
@@ -548,7 +547,7 @@ for thisTrial in trials:
                 problem0.setAutoDraw(False)
         
         # *problem1* updates
-        if problem1.status == NOT_STARTED and tThisFlip >= 0.45-frameTolerance:
+        if problem1.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
             # keep track of start time/frame for later
             problem1.frameNStart = frameN  # exact frame index
             problem1.tStart = t  # local t and not account for scr refresh
@@ -565,7 +564,7 @@ for thisTrial in trials:
                 problem1.setAutoDraw(False)
         
         # *problem2* updates
-        if problem2.status == NOT_STARTED and tThisFlip >= 0.45-frameTolerance:
+        if problem2.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
             # keep track of start time/frame for later
             problem2.frameNStart = frameN  # exact frame index
             problem2.tStart = t  # local t and not account for scr refresh
@@ -582,7 +581,7 @@ for thisTrial in trials:
                 problem2.setAutoDraw(False)
         
         # *problem6* updates
-        if problem6.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
+        if problem6.status == NOT_STARTED and tThisFlip >= 4+rand_t1-frameTolerance:
             # keep track of start time/frame for later
             problem6.frameNStart = frameN  # exact frame index
             problem6.tStart = t  # local t and not account for scr refresh
@@ -599,7 +598,7 @@ for thisTrial in trials:
                 problem6.setAutoDraw(False)
         
         # *problem7* updates
-        if problem7.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
+        if problem7.status == NOT_STARTED and tThisFlip >= 4+rand_t1-frameTolerance:
             # keep track of start time/frame for later
             problem7.frameNStart = frameN  # exact frame index
             problem7.tStart = t  # local t and not account for scr refresh
@@ -616,7 +615,7 @@ for thisTrial in trials:
                 problem7.setAutoDraw(False)
         
         # *answer* updates
-        if answer.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
+        if answer.status == NOT_STARTED and tThisFlip >= 4+rand_t1-frameTolerance:
             # keep track of start time/frame for later
             answer.frameNStart = frameN  # exact frame index
             answer.tStart = t  # local t and not account for scr refresh
@@ -657,7 +656,7 @@ for thisTrial in trials:
         #    port.setData(0)
         
         # *answer1* updates
-        if answer1.status == NOT_STARTED and tThisFlip >= 10.4+rand_t1+rand_t2-frameTolerance:
+        if answer1.status == NOT_STARTED and tThisFlip >= 8+rand_t1+rand_t2-frameTolerance:
             # keep track of start time/frame for later
             answer1.frameNStart = frameN  # exact frame index
             answer1.tStart = t  # local t and not account for scr refresh
@@ -674,7 +673,7 @@ for thisTrial in trials:
                 answer1.setAutoDraw(False)
         
         # *answer2* updates
-        if answer2.status == NOT_STARTED and tThisFlip >= 10.4+rand_t1+rand_t2-frameTolerance:
+        if answer2.status == NOT_STARTED and tThisFlip >= 8+rand_t1+rand_t2-frameTolerance:
             # keep track of start time/frame for later
             answer2.frameNStart = frameN  # exact frame index
             answer2.tStart = t  # local t and not account for scr refresh
@@ -692,7 +691,7 @@ for thisTrial in trials:
         
         # *key_resp* updates
         waitOnFlip = False
-        if key_resp.status == NOT_STARTED and tThisFlip >= 10.4+rand_t1+rand_t2-frameTolerance:
+        if key_resp.status == NOT_STARTED and tThisFlip >= 8+rand_t1+rand_t2-frameTolerance:
             # keep track of start time/frame for later
             key_resp.frameNStart = frameN  # exact frame index
             key_resp.tStart = t  # local t and not account for scr refresh
@@ -724,6 +723,23 @@ for thisTrial in trials:
                     key_resp.corr = 0
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *conpensate_img* updates
+        if conpensate_img.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            conpensate_img.frameNStart = frameN  # exact frame index
+            conpensate_img.tStart = t  # local t and not account for scr refresh
+            conpensate_img.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(conpensate_img, 'tStartRefresh')  # time at next scr refresh
+            conpensate_img.setAutoDraw(True)
+        if conpensate_img.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > conpensate_img.tStartRefresh + 10+rand_t1+rand_t2-frameTolerance:
+                # keep track of stop time/frame for later
+                conpensate_img.tStop = t  # not accounting for scr refresh
+                conpensate_img.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(conpensate_img, 'tStopRefresh')  # time at next scr refresh
+                conpensate_img.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -777,83 +793,9 @@ for thisTrial in trials:
         trials.addData('key_resp.rt', key_resp.rt)
     trials.addData('key_resp.started', key_resp.tStartRefresh)
     trials.addData('key_resp.stopped', key_resp.tStopRefresh)
+    trials.addData('conpensate_img.started', conpensate_img.tStartRefresh)
+    trials.addData('conpensate_img.stopped', conpensate_img.tStopRefresh)
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # ------Prepare to start Routine "middle_rest"-------
-    continueRoutine = True
-    # update component parameters for each repeat
-    #if problem0.status == STARTED:
-    #    port.setData(endMark)
-    #    core.wait(0.05)
-    #    port.setData(0)
-    
-    conpensate_time = compensate_clock.getTime()%1.5
-    # keep track of which components have finished
-    middle_restComponents = [conpensate]
-    for thisComponent in middle_restComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    middle_restClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-    frameN = -1
-    
-    # -------Run Routine "middle_rest"-------
-    while continueRoutine:
-        # get current time
-        t = middle_restClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=middle_restClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *conpensate* updates
-        if conpensate.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            conpensate.frameNStart = frameN  # exact frame index
-            conpensate.tStart = t  # local t and not account for scr refresh
-            conpensate.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(conpensate, 'tStartRefresh')  # time at next scr refresh
-            conpensate.setAutoDraw(True)
-        if conpensate.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > conpensate.tStartRefresh + conpensate_time-frameTolerance:
-                # keep track of stop time/frame for later
-                conpensate.tStop = t  # not accounting for scr refresh
-                conpensate.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(conpensate, 'tStopRefresh')  # time at next scr refresh
-                conpensate.setAutoDraw(False)
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in middle_restComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # -------Ending Routine "middle_rest"-------
-    for thisComponent in middle_restComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    trials.addData('conpensate.started', conpensate.tStartRefresh)
-    trials.addData('conpensate.stopped', conpensate.tStopRefresh)
-    # the Routine "middle_rest" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     

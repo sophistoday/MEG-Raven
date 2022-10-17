@@ -84,7 +84,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.45" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -111,7 +111,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.45" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -138,87 +138,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.45" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="3" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
-        <Param name="units" updates="None" val="deg" valType="str"/>
-      </ImageComponent>
-      <ImageComponent name="problem3">
-        <Param name="anchor" updates="constant" val="center" valType="str"/>
-        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="contrast" updates="constant" val="1" valType="num"/>
-        <Param name="disabled" updates="None" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
-        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="run1\figure0_3.jpg" valType="file"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="mask" updates="constant" val="" valType="str"/>
-        <Param name="name" updates="None" val="problem3" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
-        <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(-4.5, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="5.40+rand_t1" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="3" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
-        <Param name="units" updates="None" val="deg" valType="str"/>
-      </ImageComponent>
-      <ImageComponent name="problem4">
-        <Param name="anchor" updates="constant" val="center" valType="str"/>
-        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="contrast" updates="constant" val="1" valType="num"/>
-        <Param name="disabled" updates="None" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
-        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="run1\figure0_4.jpg" valType="file"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="mask" updates="constant" val="" valType="str"/>
-        <Param name="name" updates="None" val="problem4" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
-        <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="5.40+rand_t1" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="3" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
-        <Param name="units" updates="None" val="deg" valType="str"/>
-      </ImageComponent>
-      <ImageComponent name="problem5">
-        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="contrast" updates="constant" val="1" valType="num"/>
-        <Param name="disabled" updates="None" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
-        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="run1\figure0_6.jpg" valType="file"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="mask" updates="constant" val="" valType="str"/>
-        <Param name="name" updates="None" val="problem5" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
-        <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(4.5, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(4,4)" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="5.40+rand_t1" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -244,7 +164,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="5.40+rand_t1" valType="code"/>
+        <Param name="startVal" updates="None" val="4+rand_t1" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="3.0" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -270,7 +190,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="5.40+rand_t1" valType="code"/>
+        <Param name="startVal" updates="None" val="4+rand_t1" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -297,7 +217,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="5.40+rand_t1" valType="code"/>
+        <Param name="startVal" updates="None" val="4+rand_t1" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="3" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -309,8 +229,8 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="currentLoopNumber += 1;&amp;#10;problem0.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_0.jpg&quot;));&amp;#10;problem1.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_1.jpg&quot;));&amp;#10;problem2.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_2.jpg&quot;));&amp;#10;problem6.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_3.jpg&quot;));&amp;#10;problem7.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_4.jpg&quot;));&amp;#10;rand_t1 = (Number.parseInt(time_lst[[run_num, currentLoopNumber, 0]]) * 0.25);&amp;#10;rand_t2 = (Number.parseInt(time_lst[[run_num, currentLoopNumber, 1]]) * 0.25);&amp;#10;rand_idx = Number.parseInt(answer_lst[currentLoopNumber]);&amp;#10;answer1.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + rand_idx.toString()) + &quot;.jpg&quot;));&amp;#10;answer2.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + (1 - rand_idx).toString()) + &quot;.jpg&quot;));&amp;#10;if ((rand_idx === 0)) {&amp;#10;    corrAns = &quot;left&quot;;&amp;#10;} else {&amp;#10;    corrAns = &quot;right&quot;;&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="currentLoopNumber += 1&amp;#10;#print('num:',run_num)&amp;#10;#print('lst:',run_lst[run_num])&amp;#10;#print(str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber]))&amp;#10;problem0.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_0.jpg')&amp;#10;problem1.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_1.jpg')&amp;#10;problem2.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_2.jpg')&amp;#10;#problem3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')&amp;#10;#problem4.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')&amp;#10;#problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')&amp;#10;problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')&amp;#10;problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')&amp;#10;rand_t1 = int(time_lst[run_num,currentLoopNumber,0])*0.25&amp;#10;rand_t2 = int(time_lst[run_num,currentLoopNumber,1])*0.25&amp;#10;rand_idx = int(answer_lst[currentLoopNumber])&amp;#10;#rand_t2 = 0&amp;#10;&amp;#10;answer1.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(rand_idx)+'.jpg')&amp;#10;answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')&amp;#10;#answer3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_6.jpg')&amp;#10;if rand_idx==0:&amp;#10;    corrAns='left'&amp;#10;else:&amp;#10;    corrAns = 'right'" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="currentLoopNumber += 1;&amp;#10;problem0.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_0.jpg&quot;));&amp;#10;problem1.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_1.jpg&quot;));&amp;#10;problem2.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_2.jpg&quot;));&amp;#10;problem6.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_3.jpg&quot;));&amp;#10;problem7.setImage(((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;\\figure&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_4.jpg&quot;));&amp;#10;rand_t1 = (Number.parseInt(time_lst[[run_num, currentLoopNumber, 0]]) * 0.5);&amp;#10;rand_t2 = (Number.parseInt(time_lst[[run_num, currentLoopNumber, 1]]) * 0.5);&amp;#10;rand_idx = Number.parseInt(answer_lst[currentLoopNumber]);&amp;#10;answer1.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + rand_idx.toString()) + &quot;.jpg&quot;));&amp;#10;answer2.setImage(((((((&quot;run&quot; + run_lst[run_num].toString()) + &quot;/target&quot;) + idx_final[[run_num, currentLoopNumber]].toString()) + &quot;_&quot;) + (1 - rand_idx).toString()) + &quot;.jpg&quot;));&amp;#10;if ((rand_idx === 0)) {&amp;#10;    corrAns = &quot;left&quot;;&amp;#10;} else {&amp;#10;    corrAns = &quot;right&quot;;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="currentLoopNumber += 1&amp;#10;#print('num:',run_num)&amp;#10;#print('lst:',run_lst[run_num])&amp;#10;#print(str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber]))&amp;#10;problem0.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_0.jpg')&amp;#10;problem1.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_1.jpg')&amp;#10;problem2.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_2.jpg')&amp;#10;#problem3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')&amp;#10;#problem4.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')&amp;#10;#problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')&amp;#10;problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')&amp;#10;problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')&amp;#10;rand_t1 = int(time_lst[run_num,currentLoopNumber,0])*0.5&amp;#10;rand_t2 = int(time_lst[run_num,currentLoopNumber,1])*0.5&amp;#10;rand_idx = int(answer_lst[currentLoopNumber])&amp;#10;#rand_t2 = 0&amp;#10;&amp;#10;answer1.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(rand_idx)+'.jpg')&amp;#10;answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')&amp;#10;#answer3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_6.jpg')&amp;#10;if rand_idx==0:&amp;#10;    corrAns='left'&amp;#10;else:&amp;#10;    corrAns = 'right'" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="#if problem0.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if problem3.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if problem6.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if answer1.status == STARTED:&amp;#10;#    port.setData(stimMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)&amp;#10;#    &amp;#10;#if len(_key_resp_allKeys):&amp;#10;#    port.setData(respMark)&amp;#10;#    core.wait(0.05)&amp;#10;#    port.setData(0)" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
@@ -340,7 +260,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="$10.4+rand_t1+rand_t2" valType="code"/>
+        <Param name="startVal" updates="None" val="$8+rand_t1+rand_t2" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="2" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -366,7 +286,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="$10.4+rand_t1+rand_t2" valType="code"/>
+        <Param name="startVal" updates="None" val="$8+rand_t1+rand_t2" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="2" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -392,7 +312,7 @@
         <Param name="size" updates="constant" val="(4, 4)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="$10.4+rand_t1+rand_t2" valType="code"/>
+        <Param name="startVal" updates="None" val="$8+rand_t1+rand_t2" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="2" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -410,39 +330,13 @@
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="$10.4+rand_t1+rand_t2" valType="code"/>
+        <Param name="startVal" updates="None" val="$8+rand_t1+rand_t2" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="2" valType="code"/>
         <Param name="store" updates="constant" val="last key" valType="str"/>
         <Param name="storeCorrect" updates="constant" val="True" valType="bool"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
-      <PolygonComponent name="fixation1">
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="contrast" updates="constant" val="1" valType="num"/>
-        <Param name="disabled" updates="None" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="burlywood" valType="color"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="burlywood" valType="color"/>
-        <Param name="lineWidth" updates="constant" val="1" valType="num"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="fixation1" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
-        <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="None" val="circle" valType="str"/>
-        <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="3.45" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="deg" valType="str"/>
-        <Param name="vertices" updates="constant" val="" valType="list"/>
-      </PolygonComponent>
       <PolygonComponent name="fixation2">
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -495,6 +389,32 @@
         <Param name="units" updates="None" val="deg" valType="str"/>
         <Param name="vertices" updates="constant" val="" valType="list"/>
       </PolygonComponent>
+      <ImageComponent name="conpensate_img">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="conpensate_img" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="(0.5, 0.5)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$10+rand_t1+rand_t2" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
     </Routine>
     <Routine name="rest">
       <PolygonComponent name="fixation_1">
@@ -721,7 +641,6 @@
     </LoopInitiator>
     <Routine name="rest"/>
     <Routine name="trial"/>
-    <Routine name="middle_rest"/>
     <LoopTerminator name="trials"/>
   </Flow>
 </PsychoPy2experiment>
