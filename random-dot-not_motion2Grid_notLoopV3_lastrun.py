@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 九月 27, 2022, at 21:09
+    on 十月 15, 2022, at 16:10
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Documents\\GitHub\\CNL1\\MEG-Raven\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
+    originPath='D:\\Documents\\GitHub\\CNL2_Local\\random-dot-not_motion2Grid_notLoopV3_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -102,22 +102,23 @@ endMark = 8
 stimMark = 2
 respMark = 4
 currentLoopNumber=-1
-current_path = os.getcwd()  #获取当前路径
+totalRunTime = 9
+current_path = os.getcwd()  # 获取当前路径
 print(current_path)
-path = current_path+'\\'+expInfo['participant']+'run.txt' #在当前路径创建名为test的文本文件
+path = current_path + '\\' + expInfo['participant'] + 'run.txt'  # 在当前路径创建名为test的文本文件
 if os.path.exists(path):
-    run_file=open(path, 'r+')
-    run_num = int(expInfo['runID'])-1
+    run_file = open(path, 'r+')
+    run_num = int(expInfo['runID']) - 1
     run_lst = [int(i) for i in list(run_file.readline())[:-1]]
-    idx_final=[]
-    for i in range(10):
-       idx_final.append([int(j) for j in run_file.readline().split(',')])
-    idx_final=np.array(idx_final)
-    time_lst=[]
-    for i in range(10):
-       time_lst.append([int(j) for j in run_file.readline().split(',')])
-    time_lst=np.array(time_lst)
-    time_lst = time_lst.reshape(10,18,2)
+    idx_final = []
+    for i in range(totalRunTime):
+        idx_final.append([int(j) for j in run_file.readline().split(',')])
+    idx_final = np.array(idx_final)
+    time_lst = []
+    for i in range(totalRunTime):
+        time_lst.append([int(j) for j in run_file.readline().split(',')])
+    time_lst = np.array(time_lst)
+    time_lst = time_lst.reshape(totalRunTime, 18, 2)
     while True:
         line = run_file.readline()
         if line == '':
@@ -125,68 +126,68 @@ if os.path.exists(path):
 #        run_num_orig = int(line)
 #    run_num=run_num_orig
 #    print(run_num_orig)
-     
+
 else:
-    
-    #初次运行，随机出题序
-    run_num=0
-    run_num_orig=0
-    run_file = open(path,'w')
-    run_lst=np.arange(1,11)
+    # 初次运行，随机出题序
+    run_num = 0
+    run_num_orig = 0
+    run_file = open(path, 'w')
+    run_lst = np.arange(1, totalRunTime)
     np.random.shuffle(run_lst)
-    run_file.writelines(''.join(str(i) for i in run_lst)+'\n')
-    lst1=[]
-    lst2=[]
+    run_file.writelines(''.join(str(i) for i in run_lst) + '\n')
+    lst1 = []
+    lst2 = []
     for i in range(18):
-        if i%2==0:
+        if i % 2 == 0:
             lst1.append(i)
-        elif i%2==1:
+        elif i % 2 == 1:
             lst2.append(i)
 
-    idx_lst=np.vstack([lst1,lst2])
+    idx_lst = np.vstack([lst1, lst2])
     ## print(idx_lst)
-    run0=idx_lst.copy()
-    idx_seq = [run0]*10
+    run0 = idx_lst.copy()
+    idx_seq = [run0] * totalRunTime
     # print(idx_seq)
-    idx_final=[]
+    idx_final = []
     for run_seq in idx_seq:
-    #    # time.sleep(0.1)
-        for i in run_seq[:,0:run_seq.shape[1]-1]:
-    #        x=1
+        #    # time.sleep(0.1)
+        for i in run_seq[:, 0:run_seq.shape[1] - 1]:
+            #        x=1
             np.random.shuffle(i)
         np.random.shuffle(run_seq)
-        for i in range(1,run_seq.shape[0]-1):
+        for i in range(1, run_seq.shape[0] - 1):
             # print('?', run_seq[i, :][-1] // 5,run_seq[i+1,:][0]//5)
-            while (run_seq[i,:][-1]//2)==(run_seq[i+1,:][0]//2) or (run_seq[i,:][0]//2)==(run_seq[i-1,:][-1]//2) \
-                    or (max(run_seq[i,:][-1],run_seq[i+1,:][0])<=4) or \
-                    (max(run_seq[i,:][0],run_seq[i-1,:][-1])<=4):
-                    # print('?')
-                    np.random.shuffle(run_seq[i, :])
-                    for j in range(len(run_seq[i,:])-1):
-    #                    print(j,i)
-                        if max(run_seq[i,j],run_seq[i,j+1])<=4:
-    #                        print('**********************************************')
-                            np.random.shuffle(run_seq[i, :])
-                            break
-                            # np.random.shuffle(run_seq[i,:])
+            while (run_seq[i, :][-1] // 2) == (run_seq[i + 1, :][0] // 2) or (run_seq[i, :][0] // 2) == (
+                    run_seq[i - 1, :][-1] // 2) \
+                    or (max(run_seq[i, :][-1], run_seq[i + 1, :][0]) <= 4) or \
+                    (max(run_seq[i, :][0], run_seq[i - 1, :][-1]) <= 4):
+                # print('?')
+                np.random.shuffle(run_seq[i, :])
+                for j in range(len(run_seq[i, :]) - 1):
+                    #                    print(j,i)
+                    if max(run_seq[i, j], run_seq[i, j + 1]) <= 4:
+                        #                        print('**********************************************')
+                        np.random.shuffle(run_seq[i, :])
+                        break
+                        # np.random.shuffle(run_seq[i,:])
 
-                        # break
+                    # break
         # print('bef',run_seq)
-        run_seq=np.array(run_seq)
-        new_run=run_seq.reshape(1,-1)
-        run_file.writelines(','.join(str(i) for i in new_run[0,:])+'\n')
-        idx_final.append(new_run[0,:])
+        run_seq = np.array(run_seq)
+        new_run = run_seq.reshape(1, -1)
+        run_file.writelines(','.join(str(i) for i in new_run[0, :]) + '\n')
+        idx_final.append(new_run[0, :])
         # print('aft',new_run)
-    idx_final=np.array(idx_final)
+    idx_final = np.array(idx_final)
     # run_file.writelines(','.join(str(i) for i in idx_final)+'\n')
-#    run_file.writelines(str(run_num)+'\n')
-    time_lst = randint(-1,2,360).reshape(10,36)
-# print(time_lst)
+    #    run_file.writelines(str(run_num)+'\n')
+    time_lst = np.random.randint(-1, 2, 36 * totalRunTime).reshape(totalRunTime, 36)
+    # print(time_lst)
     for line in time_lst:
         # break
-        run_file.writelines(','.join(str(i) for i in line)+'\n')
-    time_lst = time_lst.reshape(10,18,2)
-answer_lst=np.concatenate([np.zeros(9),np.ones(9)],axis=0)
+        run_file.writelines(','.join(str(i) for i in line) + '\n')
+    time_lst = time_lst.reshape(totalRunTime, 18, 2)
+answer_lst = np.concatenate([np.zeros(9), np.ones(9)], axis=0)
 np.random.shuffle(answer_lst)
 
 # Initialize components for Routine "rest"
@@ -224,46 +225,22 @@ problem2 = visual.ImageStim(
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-2.0)
-problem3 = visual.ImageStim(
+problem6 = visual.ImageStim(
     win=win,
-    name='problem3', units='deg', 
+    name='problem6', units='deg', 
     image='run1/figure0_3.jpg', mask=None,
     ori=0.0, pos=(-4.5, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-3.0)
-problem4 = visual.ImageStim(
+problem7 = visual.ImageStim(
     win=win,
-    name='problem4', units='deg', 
+    name='problem7', units='deg', 
     image='run1/figure0_4.jpg', mask=None,
     ori=0.0, pos=(0, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-4.0)
-problem5 = visual.ImageStim(
-    win=win,
-    name='problem5', units='deg', 
-    image='run1/figure0_6.jpg', mask=None,
-    ori=0.0, pos=(4.5, 0), size=(4,4),
-    color=[1,1,1], colorSpace='rgb', opacity=None,
-    flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-5.0)
-problem6 = visual.ImageStim(
-    win=win,
-    name='problem6', units='deg', 
-    image='run1/figure0_6.jpg', mask=None,
-    ori=0.0, pos=(-4.5, 0), size=(4, 4),
-    color=[1,1,1], colorSpace='rgb', opacity=None,
-    flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-6.0)
-problem7 = visual.ImageStim(
-    win=win,
-    name='problem7', units='deg', 
-    image='run1/figure0_7.jpg', mask=None,
-    ori=0.0, pos=(0, 0), size=(4, 4),
-    color=[1,1,1], colorSpace='rgb', opacity=None,
-    flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-7.0)
 answer = visual.ImageStim(
     win=win,
     name='answer', units='deg', 
@@ -271,7 +248,7 @@ answer = visual.ImageStim(
     ori=0.0, pos=(4.5, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-8.0)
+    texRes=128.0, interpolate=True, depth=-5.0)
 answer1 = visual.ImageStim(
     win=win,
     name='answer1', units='deg', 
@@ -279,48 +256,16 @@ answer1 = visual.ImageStim(
     ori=0.0, pos=(-4.5, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-10.0)
+    texRes=128.0, interpolate=True, depth=-7.0)
 answer2 = visual.ImageStim(
     win=win,
     name='answer2', units='deg', 
     image='run1/target0_0.jpg', mask=None,
-    ori=0.0, pos=(0, 0), size=(4, 4),
-    color=[1,1,1], colorSpace='rgb', opacity=None,
-    flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-11.0)
-answer3 = visual.ImageStim(
-    win=win,
-    name='answer3', units='deg', 
-    image=None, mask=None,
     ori=0.0, pos=(4.5, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-12.0)
+    texRes=128.0, interpolate=True, depth=-8.0)
 key_resp = keyboard.Keyboard()
-fixation1 = visual.ShapeStim(
-    win=win, name='fixation1',units='deg', 
-    size=(0.20, 0.20), vertices='circle',
-    ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='burlywood', fillColor='burlywood',
-    opacity=None, depth=-14.0, interpolate=True)
-fixation2 = visual.ShapeStim(
-    win=win, name='fixation2',units='deg', 
-    size=(0.20, 0.20), vertices='circle',
-    ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='burlywood', fillColor='burlywood',
-    opacity=None, depth=-15.0, interpolate=True)
-fixation3 = visual.ShapeStim(
-    win=win, name='fixation3',units='deg', 
-    size=(0.20, 0.20), vertices='circle',
-    ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='burlywood', fillColor='burlywood',
-    opacity=None, depth=-16.0, interpolate=True)
-fixation4 = visual.ShapeStim(
-    win=win, name='fixation4',units='deg', 
-    size=(0.20, 0.20), vertices='circle',
-    ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='mediumseagreen', fillColor='mediumseagreen',
-    opacity=None, depth=-17.0, interpolate=True)
 
 # Initialize components for Routine "middle_rest"
 middle_restClock = core.Clock()
@@ -441,7 +386,7 @@ port.setData(0)
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=2.0, method='sequential', 
+trials = data.TrialHandler(nReps=18.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
     seed=None, name='trials')
@@ -541,11 +486,11 @@ for thisTrial in trials:
     problem0.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_0.jpg')
     problem1.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_1.jpg')
     problem2.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_2.jpg')
-    problem3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')
-    problem4.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')
-    problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')
-    problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_6.jpg')
-    problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_7.jpg')
+    #problem3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')
+    #problem4.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')
+    #problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')
+    problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')
+    problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')
     rand_t1 = int(time_lst[run_num,currentLoopNumber,0])*0.25
     rand_t2 = int(time_lst[run_num,currentLoopNumber,1])*0.25
     rand_idx = int(answer_lst[currentLoopNumber])
@@ -553,7 +498,7 @@ for thisTrial in trials:
     
     answer1.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(rand_idx)+'.jpg')
     answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')
-    answer2.setImage('run'+str(run_lst[run_num])+'/target'+str(idx_final[run_num,currentLoopNumber])+'_'+str(1-rand_idx)+'.jpg')
+    #answer3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_6.jpg')
     if rand_idx==0:
         corrAns='left'
     else:
@@ -562,7 +507,7 @@ for thisTrial in trials:
     key_resp.rt = []
     _key_resp_allKeys = []
     # keep track of which components have finished
-    trialComponents = [problem0, problem1, problem2, problem3, problem4, problem5, problem6, problem7, answer, answer1, answer2, answer3, key_resp, fixation1, fixation2, fixation3, fixation4]
+    trialComponents = [problem0, problem1, problem2, problem6, problem7, answer, answer1, answer2, key_resp]
     for thisComponent in trialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -636,59 +581,8 @@ for thisTrial in trials:
                 win.timeOnFlip(problem2, 'tStopRefresh')  # time at next scr refresh
                 problem2.setAutoDraw(False)
         
-        # *problem3* updates
-        if problem3.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
-            # keep track of start time/frame for later
-            problem3.frameNStart = frameN  # exact frame index
-            problem3.tStart = t  # local t and not account for scr refresh
-            problem3.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(problem3, 'tStartRefresh')  # time at next scr refresh
-            problem3.setAutoDraw(True)
-        if problem3.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > problem3.tStartRefresh + 3-frameTolerance:
-                # keep track of stop time/frame for later
-                problem3.tStop = t  # not accounting for scr refresh
-                problem3.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(problem3, 'tStopRefresh')  # time at next scr refresh
-                problem3.setAutoDraw(False)
-        
-        # *problem4* updates
-        if problem4.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
-            # keep track of start time/frame for later
-            problem4.frameNStart = frameN  # exact frame index
-            problem4.tStart = t  # local t and not account for scr refresh
-            problem4.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(problem4, 'tStartRefresh')  # time at next scr refresh
-            problem4.setAutoDraw(True)
-        if problem4.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > problem4.tStartRefresh + 3-frameTolerance:
-                # keep track of stop time/frame for later
-                problem4.tStop = t  # not accounting for scr refresh
-                problem4.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(problem4, 'tStopRefresh')  # time at next scr refresh
-                problem4.setAutoDraw(False)
-        
-        # *problem5* updates
-        if problem5.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
-            # keep track of start time/frame for later
-            problem5.frameNStart = frameN  # exact frame index
-            problem5.tStart = t  # local t and not account for scr refresh
-            problem5.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(problem5, 'tStartRefresh')  # time at next scr refresh
-            problem5.setAutoDraw(True)
-        if problem5.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > problem5.tStartRefresh + 3-frameTolerance:
-                # keep track of stop time/frame for later
-                problem5.tStop = t  # not accounting for scr refresh
-                problem5.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(problem5, 'tStopRefresh')  # time at next scr refresh
-                problem5.setAutoDraw(False)
-        
         # *problem6* updates
-        if problem6.status == NOT_STARTED and tThisFlip >= 10.35+rand_t1+rand_t2-frameTolerance:
+        if problem6.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
             # keep track of start time/frame for later
             problem6.frameNStart = frameN  # exact frame index
             problem6.tStart = t  # local t and not account for scr refresh
@@ -705,7 +599,7 @@ for thisTrial in trials:
                 problem6.setAutoDraw(False)
         
         # *problem7* updates
-        if problem7.status == NOT_STARTED and tThisFlip >= 10.35+rand_t1+rand_t2-frameTolerance:
+        if problem7.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
             # keep track of start time/frame for later
             problem7.frameNStart = frameN  # exact frame index
             problem7.tStart = t  # local t and not account for scr refresh
@@ -722,7 +616,7 @@ for thisTrial in trials:
                 problem7.setAutoDraw(False)
         
         # *answer* updates
-        if answer.status == NOT_STARTED and tThisFlip >= 10.35+rand_t1+rand_t2-frameTolerance:
+        if answer.status == NOT_STARTED and tThisFlip >= 5.40+rand_t1-frameTolerance:
             # keep track of start time/frame for later
             answer.frameNStart = frameN  # exact frame index
             answer.tStart = t  # local t and not account for scr refresh
@@ -763,7 +657,7 @@ for thisTrial in trials:
         #    port.setData(0)
         
         # *answer1* updates
-        if answer1.status == NOT_STARTED and tThisFlip >= 15.3+rand_t1+rand_t2-frameTolerance:
+        if answer1.status == NOT_STARTED and tThisFlip >= 10.4+rand_t1+rand_t2-frameTolerance:
             # keep track of start time/frame for later
             answer1.frameNStart = frameN  # exact frame index
             answer1.tStart = t  # local t and not account for scr refresh
@@ -780,7 +674,7 @@ for thisTrial in trials:
                 answer1.setAutoDraw(False)
         
         # *answer2* updates
-        if answer2.status == NOT_STARTED and tThisFlip >= 15.3+rand_t1+rand_t2-frameTolerance:
+        if answer2.status == NOT_STARTED and tThisFlip >= 10.4+rand_t1+rand_t2-frameTolerance:
             # keep track of start time/frame for later
             answer2.frameNStart = frameN  # exact frame index
             answer2.tStart = t  # local t and not account for scr refresh
@@ -796,26 +690,9 @@ for thisTrial in trials:
                 win.timeOnFlip(answer2, 'tStopRefresh')  # time at next scr refresh
                 answer2.setAutoDraw(False)
         
-        # *answer3* updates
-        if answer3.status == NOT_STARTED and tThisFlip >= 15.3+rand_t1+rand_t2-frameTolerance:
-            # keep track of start time/frame for later
-            answer3.frameNStart = frameN  # exact frame index
-            answer3.tStart = t  # local t and not account for scr refresh
-            answer3.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(answer3, 'tStartRefresh')  # time at next scr refresh
-            answer3.setAutoDraw(True)
-        if answer3.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > answer3.tStartRefresh + 2-frameTolerance:
-                # keep track of stop time/frame for later
-                answer3.tStop = t  # not accounting for scr refresh
-                answer3.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(answer3, 'tStopRefresh')  # time at next scr refresh
-                answer3.setAutoDraw(False)
-        
         # *key_resp* updates
         waitOnFlip = False
-        if key_resp.status == NOT_STARTED and tThisFlip >= 15.3+rand_t1+rand_t2-frameTolerance:
+        if key_resp.status == NOT_STARTED and tThisFlip >= 10.4+rand_t1+rand_t2-frameTolerance:
             # keep track of start time/frame for later
             key_resp.frameNStart = frameN  # exact frame index
             key_resp.tStart = t  # local t and not account for scr refresh
@@ -848,74 +725,6 @@ for thisTrial in trials:
                 # a response ends the routine
                 continueRoutine = False
         
-        # *fixation1* updates
-        if fixation1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            fixation1.frameNStart = frameN  # exact frame index
-            fixation1.tStart = t  # local t and not account for scr refresh
-            fixation1.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(fixation1, 'tStartRefresh')  # time at next scr refresh
-            fixation1.setAutoDraw(True)
-        if fixation1.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > fixation1.tStartRefresh + 3.45-frameTolerance:
-                # keep track of stop time/frame for later
-                fixation1.tStop = t  # not accounting for scr refresh
-                fixation1.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(fixation1, 'tStopRefresh')  # time at next scr refresh
-                fixation1.setAutoDraw(False)
-        
-        # *fixation2* updates
-        if fixation2.status == NOT_STARTED and tThisFlip >= 3.45-frameTolerance:
-            # keep track of start time/frame for later
-            fixation2.frameNStart = frameN  # exact frame index
-            fixation2.tStart = t  # local t and not account for scr refresh
-            fixation2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(fixation2, 'tStartRefresh')  # time at next scr refresh
-            fixation2.setAutoDraw(True)
-        if fixation2.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > fixation2.tStartRefresh + 4.95+rand_t1-frameTolerance:
-                # keep track of stop time/frame for later
-                fixation2.tStop = t  # not accounting for scr refresh
-                fixation2.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(fixation2, 'tStopRefresh')  # time at next scr refresh
-                fixation2.setAutoDraw(False)
-        
-        # *fixation3* updates
-        if fixation3.status == NOT_STARTED and tThisFlip >= 8.4+rand_t1-frameTolerance:
-            # keep track of start time/frame for later
-            fixation3.frameNStart = frameN  # exact frame index
-            fixation3.tStart = t  # local t and not account for scr refresh
-            fixation3.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(fixation3, 'tStartRefresh')  # time at next scr refresh
-            fixation3.setAutoDraw(True)
-        if fixation3.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > fixation3.tStartRefresh + 4.95+rand_t2-frameTolerance:
-                # keep track of stop time/frame for later
-                fixation3.tStop = t  # not accounting for scr refresh
-                fixation3.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(fixation3, 'tStopRefresh')  # time at next scr refresh
-                fixation3.setAutoDraw(False)
-        
-        # *fixation4* updates
-        if fixation4.status == NOT_STARTED and tThisFlip >= 13.35+rand_t1+rand_t2-frameTolerance:
-            # keep track of start time/frame for later
-            fixation4.frameNStart = frameN  # exact frame index
-            fixation4.tStart = t  # local t and not account for scr refresh
-            fixation4.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(fixation4, 'tStartRefresh')  # time at next scr refresh
-            fixation4.setAutoDraw(True)
-        if fixation4.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > fixation4.tStartRefresh + 3.95-frameTolerance:
-                # keep track of stop time/frame for later
-                fixation4.tStop = t  # not accounting for scr refresh
-                fixation4.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(fixation4, 'tStopRefresh')  # time at next scr refresh
-                fixation4.setAutoDraw(False)
-        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -943,12 +752,6 @@ for thisTrial in trials:
     trials.addData('problem1.stopped', problem1.tStopRefresh)
     trials.addData('problem2.started', problem2.tStartRefresh)
     trials.addData('problem2.stopped', problem2.tStopRefresh)
-    trials.addData('problem3.started', problem3.tStartRefresh)
-    trials.addData('problem3.stopped', problem3.tStopRefresh)
-    trials.addData('problem4.started', problem4.tStartRefresh)
-    trials.addData('problem4.stopped', problem4.tStopRefresh)
-    trials.addData('problem5.started', problem5.tStartRefresh)
-    trials.addData('problem5.stopped', problem5.tStopRefresh)
     trials.addData('problem6.started', problem6.tStartRefresh)
     trials.addData('problem6.stopped', problem6.tStopRefresh)
     trials.addData('problem7.started', problem7.tStartRefresh)
@@ -959,8 +762,6 @@ for thisTrial in trials:
     trials.addData('answer1.stopped', answer1.tStopRefresh)
     trials.addData('answer2.started', answer2.tStartRefresh)
     trials.addData('answer2.stopped', answer2.tStopRefresh)
-    trials.addData('answer3.started', answer3.tStartRefresh)
-    trials.addData('answer3.stopped', answer3.tStopRefresh)
     # check responses
     if key_resp.keys in ['', [], None]:  # No response was made
         key_resp.keys = None
@@ -976,14 +777,6 @@ for thisTrial in trials:
         trials.addData('key_resp.rt', key_resp.rt)
     trials.addData('key_resp.started', key_resp.tStartRefresh)
     trials.addData('key_resp.stopped', key_resp.tStopRefresh)
-    trials.addData('fixation1.started', fixation1.tStartRefresh)
-    trials.addData('fixation1.stopped', fixation1.tStopRefresh)
-    trials.addData('fixation2.started', fixation2.tStartRefresh)
-    trials.addData('fixation2.stopped', fixation2.tStopRefresh)
-    trials.addData('fixation3.started', fixation3.tStartRefresh)
-    trials.addData('fixation3.stopped', fixation3.tStopRefresh)
-    trials.addData('fixation4.started', fixation4.tStartRefresh)
-    trials.addData('fixation4.stopped', fixation4.tStopRefresh)
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1064,7 +857,7 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 2.0 repeats of 'trials'
+# completed 18.0 repeats of 'trials'
 
 
 # Flip one final time so any remaining win.callOnFlip() 
