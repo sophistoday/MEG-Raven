@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 十月 09, 2022, at 22:46
+    on 十月 15, 2022, at 16:10
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -228,7 +228,7 @@ problem2 = visual.ImageStim(
 problem6 = visual.ImageStim(
     win=win,
     name='problem6', units='deg', 
-    image='run1/figure0_6.jpg', mask=None,
+    image='run1/figure0_3.jpg', mask=None,
     ori=0.0, pos=(-4.5, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -236,7 +236,7 @@ problem6 = visual.ImageStim(
 problem7 = visual.ImageStim(
     win=win,
     name='problem7', units='deg', 
-    image='run1/figure0_7.jpg', mask=None,
+    image='run1/figure0_4.jpg', mask=None,
     ori=0.0, pos=(0, 0), size=(4, 4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -489,8 +489,8 @@ for thisTrial in trials:
     #problem3.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')
     #problem4.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')
     #problem5.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_5.jpg')
-    problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_6.jpg')
-    problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_7.jpg')
+    problem6.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_3.jpg')
+    problem7.setImage('run'+str(run_lst[run_num])+'\\figure'+str(idx_final[run_num,currentLoopNumber])+'_4.jpg')
     rand_t1 = int(time_lst[run_num,currentLoopNumber,0])*0.25
     rand_t2 = int(time_lst[run_num,currentLoopNumber,1])*0.25
     rand_idx = int(answer_lst[currentLoopNumber])

@@ -233,7 +233,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="run1\figure0_6.jpg" valType="file"/>
+        <Param name="image" updates="constant" val="run1\figure0_3.jpg" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="problem6" valType="code"/>
@@ -259,7 +259,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="run1\figure0_7.jpg" valType="file"/>
+        <Param name="image" updates="constant" val="run1\figure0_4.jpg" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="problem7" valType="code"/>
