@@ -1366,7 +1366,7 @@ for thisComponent in endComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('polygon.started', polygon.tStartRefresh)
-thisExp.addData('polygon.stopped', polygon.tStopRefresh)
+thisExp.addData('polygon.stopped', tThisFlipGlobal)
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting

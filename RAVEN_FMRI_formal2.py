@@ -582,7 +582,8 @@ while continueRoutine:
         win.flip()
 
 # -------Ending Routine "routine_1"-------
-for thisComponent in routine_1Components:
+key_resp_2_stopTime=tThisFlipGlobal
+        for thisComponent in routine_1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 # check responses
@@ -592,7 +593,7 @@ thisExp.addData('key_resp_2.keys',key_resp_2.keys)
 if key_resp_2.keys != None:  # we had a response
     thisExp.addData('key_resp_2.rt', key_resp_2.rt)
 thisExp.addData('key_resp_2.started', key_resp_2.tStartRefresh)
-thisExp.addData('key_resp_2.stopped', key_resp_2.tStopRefresh)
+thisExp.addData('key_resp_2.stopped', key_resp_2_stopTime)
 thisExp.nextEntry()
 # the Routine "routine_1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -640,6 +641,7 @@ while continueRoutine and routineTimer.getTime() > 0:
             polygon.tStop = t  # not accounting for scr refresh
             polygon.frameNStop = frameN  # exact frame index
             win.timeOnFlip(polygon, 'tStopRefresh')  # time at next scr refresh
+            polygon.tStopRefresh = tThisFlipGlobal
             polygon.setAutoDraw(False)
     
     # check for quit (typically the Esc key)
@@ -660,11 +662,12 @@ while continueRoutine and routineTimer.getTime() > 0:
         win.flip()
 
 # -------Ending Routine "end"-------
+polygon_stopTime=tThisFlipGlobal
 for thisComponent in endComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('polygon.started', polygon.tStartRefresh)
-thisExp.addData('polygon.stopped', polygon.tStopRefresh)
+thisExp.addData('polygon.stopped', polygon_stopTime)
 
 # set up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=27.0, method='sequential', 
@@ -754,7 +757,7 @@ for thisTrial in trials:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     trials.addData('fixation_1.started', fixation_1.tStartRefresh)
-    trials.addData('fixation_1.stopped', fixation_1.tStopRefresh)
+    trials.addData('fixation_1.stopped', tThisFlipGlobal)
     
     # ------Prepare to start Routine "trial"-------
     continueRoutine = True
@@ -1139,6 +1142,7 @@ for thisTrial in trials:
     for thisComponent in trialComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
+    answer_stop_time=tThisFlipGlobal
     trials.addData('problem0.started', problem0.tStartRefresh)
     trials.addData('problem0.stopped', problem0.tStopRefresh)
     trials.addData('problem1.started', problem1.tStartRefresh)
@@ -1152,24 +1156,24 @@ for thisTrial in trials:
     trials.addData('answer.started', answer.tStartRefresh)
     trials.addData('answer.stopped', answer.tStopRefresh)
     trials.addData('answer1.started', answer1.tStartRefresh)
-    trials.addData('answer1.stopped', answer1.tStopRefresh)
+    trials.addData('answer1.stopped', answer_stop_time)
     trials.addData('answer2.started', answer2.tStartRefresh)
-    trials.addData('answer2.stopped', answer2.tStopRefresh)
+    trials.addData('answer2.stopped', answer_stop_time)
     # check responses
     if key_resp.keys in ['', [], None]:  # No response was made
         key_resp.keys = None
         # was no response the correct answer?!
         if str(corrAns1).lower() == 'none':
-           key_resp.corr = 1;  # correct non-response
+           key_resp.corr = 1# correct non-response
         else:
-           key_resp.corr = 0;  # failed to respond (incorrectly)
+           key_resp.corr = 0  # failed to respond (incorrectly)
     # store data for trials (TrialHandler)
     trials.addData('key_resp.keys',key_resp.keys)
     trials.addData('key_resp.corr', key_resp.corr)
     if key_resp.keys != None:  # we had a response
         trials.addData('key_resp.rt', key_resp.rt)
     trials.addData('key_resp.started', key_resp.tStartRefresh)
-    trials.addData('key_resp.stopped', key_resp.tStopRefresh)
+    trials.addData('key_resp.stopped', answer_stop_time)
     trials.addData('fixation2.started', fixation2.tStartRefresh)
     trials.addData('fixation2.stopped', fixation2.tStopRefresh)
     trials.addData('fixation3.started', fixation3.tStartRefresh)
@@ -1188,11 +1192,11 @@ for thisTrial in trials:
     if key_resp_4.keys != None:  # we had a response
         trials.addData('key_resp_4.rt', key_resp_4.rt)
     trials.addData('key_resp_4.started', key_resp_4.tStartRefresh)
-    trials.addData('key_resp_4.stopped', key_resp_4.tStopRefresh)
+    trials.addData('key_resp_4.stopped', answer_stop_time)
     trials.addData('fixation.started', fixation.tStartRefresh)
     trials.addData('fixation.stopped', fixation.tStopRefresh)
     trials.addData('arrow.started', arrow.tStartRefresh)
-    trials.addData('arrow.stopped', arrow.tStopRefresh)
+    trials.addData('arrow.stopped', answer_stop_time)
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1280,13 +1284,14 @@ for thisTrial in trials:
             win.flip()
     
     # -------Ending Routine "middle_rest"-------
+    polygon_2_stopTime=tThisFlipGlobal
     for thisComponent in middle_restComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     trials.addData('image_2.started', image_2.tStartRefresh)
     trials.addData('image_2.stopped', image_2.tStopRefresh)
     trials.addData('polygon_2.started', polygon_2.tStartRefresh)
-    trials.addData('polygon_2.stopped', polygon_2.tStopRefresh)
+    trials.addData('polygon_2.stopped', polygon_2_stopTime)
     # the Routine "middle_rest" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
@@ -1361,7 +1366,7 @@ for thisComponent in endComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('polygon.started', polygon.tStartRefresh)
-thisExp.addData('polygon.stopped', polygon.tStopRefresh)
+thisExp.addData('polygon.stopped', tThisFlipGlobal)
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
