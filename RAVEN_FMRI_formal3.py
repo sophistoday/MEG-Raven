@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 十一月 17, 2022, at 22:14
+    on 十一月 19, 2022, at 14:17
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -32,7 +32,6 @@ from psychopy import monitors
 myMon = monitors.Monitor("testMonitor",distance=110,width=30)
 myMon.setSizePix((1024, 768))
 
-
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
@@ -54,7 +53,7 @@ filename = _thisDir + os.sep + u'data/%s_Run%s_%s_%s' % (expInfo['participant'],
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Documents\\GitHub\\CNL2_Local\\RAVEN_FMRI_formal2.py',
+    originPath='RAVEN_FMRI_formal.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -62,7 +61,8 @@ logFile = logging.LogFile(filename+'.log', level=logging.EXP)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
-frameTolerance = 0.001  # how close to onset before 'same' frame
+frameTolerance = 0.00001  # how close to onset before 'same' frame
+
 
 pixelPerMilimeterHor = 1024/390
 pixelPerMilimeterVer = 768/295
@@ -75,14 +75,12 @@ fixAngle=0.2
 
 guide_picHorDeg = 10
 guide_picVerDeg = 7.5
-
-
 # Start Code - component code to be run after the window creation
 
 # Setup the Window
 win = visual.Window(
-    size=[1024, 768], fullscr=False, screen=1, 
-    winType='pyglet', allowGUI=False, allowStencil=False,
+    size=[1024, 768], fullscr=False, screen=0,
+    winType='pyglet', allowGUI=True, allowStencil=False,
     monitor=myMon, color=[-1.0,-1.0,-1.0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='deg')
@@ -119,16 +117,14 @@ start_image = visual.ImageStim(
 #respMark = 4
 every_run_num = 27
 currentLoopNumber=-1
-totalRunTime = 2
+totalRunTime = 8
 current_path = os.getcwd()  # 获取当前路径
 #print(current_path)
-path = current_path + '/' + expInfo['participant'] + 'run2.txt'  # 在当前路径创建名为run的文本文件
+path = current_path + '/' + expInfo['participant'] + 'run.txt'  # 在当前路径创建名为run的文本文件
 if os.path.exists(path):
     run_file = open(path, 'r+')
-    run_num = int(expInfo['runID']) - 9
+    run_num = int(expInfo['runID']) - 1
     run_lst = [int(i) for i in list(run_file.readline())[:-1]]
-    run_lst.remove(0)
-    run_lst[run_lst.index(1)] = 10
     idx_final = []
     for i in range(totalRunTime):
         idx_final.append([int(j) for j in run_file.readline().split(',')])
@@ -151,7 +147,7 @@ else:
     run_num = 0
     
     run_file = open(path, 'w')
-    run_lst = np.arange(9, 11) #生成runID的序列
+    run_lst = np.arange(1, totalRunTime+1) #生成runID的序列
     np.random.shuffle(run_lst)
     run_file.writelines(''.join(str(i) for i in run_lst) + '\n')
     lst1 = []
@@ -223,9 +219,9 @@ np.random.shuffle(answer_lst)
 
 #print(imgPixelHor)
 #arrPixelhor = int(pixelPerMilimeterHor * (2 * 1100 * tan(imgAngle/180*pi/2)));
-mouse = event.Mouse(win=win)
+mouse_2 = event.Mouse(win=win)
 x, y = [None, None]
-mouse.mouseClock = core.Clock()
+mouse_2.mouseClock = core.Clock()
 
 # Initialize components for Routine "routine_1"
 routine_1Clock = core.Clock()
@@ -234,8 +230,8 @@ key_resp_2 = keyboard.Keyboard()
 # Initialize components for Routine "end"
 endClock = core.Clock()
 polygon = visual.ShapeStim(
-    win=win, name='polygon', vertices='circle',units='deg', 
-    size=(fixAngle,fixAngle),
+    win=win, name='polygon', vertices='cross',units='deg', 
+    size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=0.0, interpolate=True)
@@ -256,7 +252,7 @@ problem0 = visual.ImageStim(
     name='problem0', units='pix', 
     image='run1/figure0_0.jpg', mask=None,
     ori=0.0, pos=(-imgPixelHor-30,0), size=(imgPixelHor,imgPixelVer),
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=0.0)
 problem1 = visual.ImageStim(
@@ -264,7 +260,7 @@ problem1 = visual.ImageStim(
     name='problem1', units='pix', 
     image='run1/figure0_1.jpg', mask=None,
     ori=0.0, pos=(0, 0), size=(imgPixelHor,imgPixelVer),
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-1.0)
 problem2 = visual.ImageStim(
@@ -272,7 +268,7 @@ problem2 = visual.ImageStim(
     name='problem2', units='pix', 
     image='run1/figure0_2.jpg', mask=None,
     ori=0.0, pos=(imgPixelHor+30, 0), size=(imgPixelHor,imgPixelVer),
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-2.0)
 problem6 = visual.ImageStim(
@@ -317,21 +313,21 @@ answer2 = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=-8.0)
 key_resp = keyboard.Keyboard()
 fixation2 = visual.ShapeStim(
-    win=win, name='fixation2', vertices='circle',units='deg', 
-    size=(fixAngle,fixAngle),
+    win=win, name='fixation2', vertices='cross',units='deg', 
+    size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-10.0, interpolate=True)
 fixation3 = visual.ShapeStim(
-    win=win, name='fixation3', vertices='circle',units='deg', 
-    size=(fixAngle,fixAngle),
+    win=win, name='fixation3', vertices='cross',units='deg', 
+    size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-11.0, interpolate=True)
 key_resp_4 = keyboard.Keyboard()
 fixation = visual.ShapeStim(
-    win=win, name='fixation', vertices='circle',units='deg', 
-    size=(fixAngle,fixAngle),
+    win=win, name='fixation', vertices='cross',units='deg', 
+    size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-13.0, interpolate=True)
@@ -355,8 +351,8 @@ image_2 = visual.ImageStim(
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-1.0)
 polygon_2 = visual.ShapeStim(
-    win=win, name='polygon_2', vertices='circle',units='deg', 
-    size=(fixAngle,fixAngle),
+    win=win, name='polygon_2', vertices='cross',units='deg', 
+    size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-2.0, interpolate=True)
@@ -364,8 +360,8 @@ polygon_2 = visual.ShapeStim(
 # Initialize components for Routine "end"
 endClock = core.Clock()
 polygon = visual.ShapeStim(
-    win=win, name='polygon', vertices='circle',units='deg', 
-    size=(fixAngle,fixAngle),
+    win=win, name='polygon', vertices='cross',units='deg', 
+    size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=0.0, interpolate=True)
@@ -384,11 +380,11 @@ _key_resp_3_allKeys = []
 #    start_image.setImage('begin.png')
 #else:
 #    start_image.setImage('rest.png')
-mouse.setVisible(False)
-# setup some python lists for storing info about the mouse
+mouse_2.setVisible(False)
+# setup some python lists for storing info about the mouse_2
 gotValidClick = False  # until a click is received
 # keep track of which components have finished
-startComponents = [key_resp_3, start_image, mouse]
+startComponents = [key_resp_3, start_image, mouse_2]
 for thisComponent in startComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -443,26 +439,26 @@ while continueRoutine:
         start_image.setAutoDraw(True)
     #if start_mark.status == STARTED:
     #    print("yes")
-    # *mouse* updates
-    if mouse.status == NOT_STARTED and t >= 0.0-frameTolerance:
+    # *mouse_2* updates
+    if mouse_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        mouse.frameNStart = frameN  # exact frame index
-        mouse.tStart = t  # local t and not account for scr refresh
-        mouse.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
-        mouse.status = STARTED
-        mouse.mouseClock.reset()
-        prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
-    if mouse.status == STARTED:
+        mouse_2.frameNStart = frameN  # exact frame index
+        mouse_2.tStart = t  # local t and not account for scr refresh
+        mouse_2.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(mouse_2, 'tStartRefresh')  # time at next scr refresh
+        mouse_2.status = STARTED
+        mouse_2.mouseClock.reset()
+        prevButtonState = mouse_2.getPressed()  # if button is down already this ISN'T a new click
+    if mouse_2.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > mouse.tStartRefresh + 1.0-frameTolerance:
+        if tThisFlipGlobal > mouse_2.tStartRefresh + 1.0-frameTolerance:
             # keep track of stop time/frame for later
-            mouse.tStop = t  # not accounting for scr refresh
-            mouse.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(mouse, 'tStopRefresh')  # time at next scr refresh
-            mouse.status = FINISHED
-    if mouse.status == STARTED:  # only update if started and not finished!
-        buttons = mouse.getPressed()
+            mouse_2.tStop = t  # not accounting for scr refresh
+            mouse_2.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(mouse_2, 'tStopRefresh')  # time at next scr refresh
+            mouse_2.status = FINISHED
+    if mouse_2.status == STARTED:  # only update if started and not finished!
+        buttons = mouse_2.getPressed()
         if buttons != prevButtonState:  # button state changed?
             prevButtonState = buttons
             if sum(buttons) > 0:  # state changed to a new click
@@ -502,15 +498,15 @@ thisExp.nextEntry()
 thisExp.addData('start_image.started', start_image.tStartRefresh)
 thisExp.addData('start_image.stopped', start_image.tStopRefresh)
 # store data for thisExp (ExperimentHandler)
-x, y = mouse.getPos()
-buttons = mouse.getPressed()
-thisExp.addData('mouse.x', x)
-thisExp.addData('mouse.y', y)
-thisExp.addData('mouse.leftButton', buttons[0])
-thisExp.addData('mouse.midButton', buttons[1])
-thisExp.addData('mouse.rightButton', buttons[2])
-thisExp.addData('mouse.started', mouse.tStart)
-thisExp.addData('mouse.stopped', mouse.tStop)
+x, y = mouse_2.getPos()
+buttons = mouse_2.getPressed()
+thisExp.addData('mouse_2.x', x)
+thisExp.addData('mouse_2.y', y)
+thisExp.addData('mouse_2.leftButton', buttons[0])
+thisExp.addData('mouse_2.midButton', buttons[1])
+thisExp.addData('mouse_2.rightButton', buttons[2])
+thisExp.addData('mouse_2.started', mouse_2.tStart)
+thisExp.addData('mouse_2.stopped', mouse_2.tStop)
 thisExp.nextEntry()
 # the Routine "start" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -603,7 +599,7 @@ routineTimer.reset()
 
 # ------Prepare to start Routine "end"-------
 continueRoutine = True
-routineTimer.add(10.000000)
+routineTimer.addTime(10.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
 endComponents = [polygon]
@@ -619,7 +615,7 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 endClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
-
+polygon_start_time = 0   #补偿注视点开始时间
 # -------Run Routine "end"-------
 while continueRoutine and routineTimer.getTime() > 0:
     # get current time
@@ -632,6 +628,7 @@ while continueRoutine and routineTimer.getTime() > 0:
     # *polygon* updates
     if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
+        polygon_start_time  = tThisFlipGlobal
         polygon.frameNStart = frameN  # exact frame index
         polygon.tStart = t  # local t and not account for scr refresh
         polygon.tStartRefresh = tThisFlipGlobal  # on global time
@@ -642,6 +639,7 @@ while continueRoutine and routineTimer.getTime() > 0:
         if tThisFlipGlobal > polygon.tStartRefresh + 10-frameTolerance:
             # keep track of stop time/frame for later
             polygon.tStop = t  # not accounting for scr refresh
+
             polygon.frameNStop = frameN  # exact frame index
             win.timeOnFlip(polygon, 'tStopRefresh')  # time at next scr refresh
             polygon.tStopRefresh = tThisFlipGlobal
@@ -669,8 +667,8 @@ polygon_stopTime=tThisFlipGlobal
 for thisComponent in endComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('polygon.started', polygon.tStartRefresh)
-thisExp.addData('polygon.stopped', polygon_stopTime)
+thisExp.addData('polygon.started', polygon_start_time)
+thisExp.addData('polygon.stopped', polygon_stopTime)#polygon.tStopRefresh
 
 # set up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=27.0, method='sequential', 
@@ -693,10 +691,11 @@ for thisTrial in trials:
     
     # ------Prepare to start Routine "rest"-------
     continueRoutine = True
-    routineTimer.add(1.000000)
+    routineTimer.addTime(1.000000)
     # update component parameters for each repeat
     compensate_clock = core.Clock()
     compensate_clock.reset
+    
     # keep track of which components have finished
     restComponents = [fixation_1]
     for thisComponent in restComponents:
@@ -711,7 +710,7 @@ for thisTrial in trials:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     restClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
-    
+    fixation_1_startTime = 0
     # -------Run Routine "rest"-------
     while continueRoutine and routineTimer.getTime() > 0:
         # get current time
@@ -726,6 +725,7 @@ for thisTrial in trials:
             # keep track of start time/frame for later
             fixation_1.frameNStart = frameN  # exact frame index
             fixation_1.tStart = t  # local t and not account for scr refresh
+            fixation_1_startTime = tThisFlipGlobal
             fixation_1.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(fixation_1, 'tStartRefresh')  # time at next scr refresh
             fixation_1.setAutoDraw(True)
@@ -759,7 +759,7 @@ for thisTrial in trials:
     for thisComponent in restComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    trials.addData('fixation_1.started', fixation_1.tStartRefresh)
+    trials.addData('fixation_1.started', fixation_1_startTime )
     trials.addData('fixation_1.stopped', tThisFlipGlobal)
     
     # ------Prepare to start Routine "trial"-------
@@ -1192,7 +1192,6 @@ for thisTrial in trials:
     # store data for trials (TrialHandler)
     trials.addData('key_resp_4.keys',key_resp_4.keys)
     trials.addData('key_resp_4.corr', key_resp_4.corr)
-    trials.addData('corr', key_resp_4.corr+ key_resp.corr)
     if key_resp_4.keys != None:  # we had a response
         trials.addData('key_resp_4.rt', key_resp_4.rt)
     trials.addData('key_resp_4.started', key_resp_4.tStartRefresh)
@@ -1288,6 +1287,7 @@ for thisTrial in trials:
             win.flip()
     
     # -------Ending Routine "middle_rest"-------
+
     polygon_2_stopTime=tThisFlipGlobal
     for thisComponent in middle_restComponents:
         if hasattr(thisComponent, "setAutoDraw"):
@@ -1305,7 +1305,7 @@ for thisTrial in trials:
 
 # ------Prepare to start Routine "end"-------
 continueRoutine = True
-routineTimer.add(10.000000)
+routineTimer.addTime(10.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
 endComponents = [polygon]

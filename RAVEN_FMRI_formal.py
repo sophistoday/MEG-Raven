@@ -27,8 +27,10 @@ import os  # handy system and path functions
 import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
+from psychopy import monitors
 
-
+myMon = monitors.Monitor("testMonitor",distance=110,width=30)
+myMon.setSizePix((1024, 768))
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -51,7 +53,7 @@ filename = _thisDir + os.sep + u'data/%s_Run%s_%s_%s' % (expInfo['participant'],
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Documents\\GitHub\\CNL2_Local\\RAVEN_FMRI_formal.py',
+    originPath='RAVEN_FMRI_formal.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -61,7 +63,7 @@ logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a f
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
 frameTolerance = 0.001  # how close to onset before 'same' frame
 
-
+#stimulus size
 pixelPerMilimeterHor = 1024/390
 pixelPerMilimeterVer = 768/295
 
@@ -71,15 +73,15 @@ imgPixelVer = int(pixelPerMilimeterVer * (2 * 1100 * tan(imgAngle/180*pi/2)))
 
 fixAngle=0.2
 
-guide_picHorDeg = 20
-guide_picVerDeg = 15
+guide_picHorDeg = 10
+guide_picVerDeg = 7.5
 # Start Code - component code to be run after the window creation
 
 # Setup the Window
 win = visual.Window(
     size=[1024, 768], fullscr=False, screen=1,
-    winType='pyglet', allowGUI=True, allowStencil=False,
-    monitor='setMonitor', color=[-1.0,-1.0,-1.0], colorSpace='rgb',
+    winType='pyglet', allowGUI=False, allowStencil=False,
+    monitor=myMon, color=[-1.0,-1.0,-1.0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='deg')
 # store frame rate of monitor if we can measure it
@@ -94,6 +96,8 @@ ioDevice = ioConfig = ioSession = ioServer = eyetracker = None
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
+#set totalCorrNum
+totalCorrNum=0
 
 # Initialize components for Routine "start"
 startClock = core.Clock()
@@ -228,7 +232,7 @@ key_resp_2 = keyboard.Keyboard()
 # Initialize components for Routine "end"
 endClock = core.Clock()
 polygon = visual.ShapeStim(
-    win=win, name='polygon', vertices='cross',units='deg', 
+    win=win, name='polygon', vertices='circle',units='deg', 
     size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
@@ -311,20 +315,20 @@ answer2 = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=-8.0)
 key_resp = keyboard.Keyboard()
 fixation2 = visual.ShapeStim(
-    win=win, name='fixation2', vertices='cross',units='deg', 
+    win=win, name='fixation2', vertices='circle',units='deg', 
     size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-10.0, interpolate=True)
 fixation3 = visual.ShapeStim(
-    win=win, name='fixation3', vertices='cross',units='deg', 
+    win=win, name='fixation3', vertices='circle',units='deg', 
     size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-11.0, interpolate=True)
 key_resp_4 = keyboard.Keyboard()
 fixation = visual.ShapeStim(
-    win=win, name='fixation', vertices='cross',units='deg', 
+    win=win, name='fixation', vertices='circle',units='deg', 
     size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
@@ -349,7 +353,7 @@ image_2 = visual.ImageStim(
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-1.0)
 polygon_2 = visual.ShapeStim(
-    win=win, name='polygon_2', vertices='cross',units='deg', 
+    win=win, name='polygon_2', vertices='circle',units='deg', 
     size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
@@ -358,7 +362,7 @@ polygon_2 = visual.ShapeStim(
 # Initialize components for Routine "end"
 endClock = core.Clock()
 polygon = visual.ShapeStim(
-    win=win, name='polygon', vertices='cross',units='deg', 
+    win=win, name='polygon', vertices='circle',units='deg', 
     size=(fixAngle, fixAngle),
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
@@ -613,7 +617,7 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 endClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
-
+#polygon_start_time = 0   #补偿注视点开始时间
 # -------Run Routine "end"-------
 while continueRoutine and routineTimer.getTime() > 0:
     # get current time
@@ -624,8 +628,9 @@ while continueRoutine and routineTimer.getTime() > 0:
     # update/draw components on each frame
     
     # *polygon* updates
-    if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    if polygon.status == NOT_STARTED and tThisFlip >= 0.0:
         # keep track of start time/frame for later
+        #polygon_start_time  = tThisFlipGlobal
         polygon.frameNStart = frameN  # exact frame index
         polygon.tStart = t  # local t and not account for scr refresh
         polygon.tStartRefresh = tThisFlipGlobal  # on global time
@@ -707,7 +712,7 @@ for thisTrial in trials:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     restClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
-    
+    fixation_1_startTime = 0
     # -------Run Routine "rest"-------
     while continueRoutine and routineTimer.getTime() > 0:
         # get current time
@@ -722,6 +727,7 @@ for thisTrial in trials:
             # keep track of start time/frame for later
             fixation_1.frameNStart = frameN  # exact frame index
             fixation_1.tStart = t  # local t and not account for scr refresh
+            fixation_1_startTime = tThisFlipGlobal
             fixation_1.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(fixation_1, 'tStartRefresh')  # time at next scr refresh
             fixation_1.setAutoDraw(True)
@@ -755,7 +761,7 @@ for thisTrial in trials:
     for thisComponent in restComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    trials.addData('fixation_1.started', fixation_1.tStartRefresh)
+    trials.addData('fixation_1.started', fixation_1_startTime )
     trials.addData('fixation_1.stopped', tThisFlipGlobal)
     
     # ------Prepare to start Routine "trial"-------
@@ -1188,6 +1194,8 @@ for thisTrial in trials:
     # store data for trials (TrialHandler)
     trials.addData('key_resp_4.keys',key_resp_4.keys)
     trials.addData('key_resp_4.corr', key_resp_4.corr)
+    trials.addData('corr', key_resp_4.corr+ key_resp.corr)
+    totalCorrNum=totalCorrNum+key_resp_4.corr+ key_resp.corr
     if key_resp_4.keys != None:  # we had a response
         trials.addData('key_resp_4.rt', key_resp_4.rt)
     trials.addData('key_resp_4.started', key_resp_4.tStartRefresh)
@@ -1367,7 +1375,9 @@ for thisComponent in endComponents:
         thisComponent.setAutoDraw(False)
 thisExp.addData('polygon.started', polygon.tStartRefresh)
 thisExp.addData('polygon.stopped', tThisFlipGlobal)
-
+print("-"*80)
+print(totalCorrNum)
+print("-"*80)
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
 win.flip()

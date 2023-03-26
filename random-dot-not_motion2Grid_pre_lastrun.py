@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on 十一月 20, 2022, at 17:36
+    on 二月 27, 2023, at 21:52
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -294,21 +294,21 @@ answer2 = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=-8.0)
 key_resp = keyboard.Keyboard()
 fixation2 = visual.ShapeStim(
-    win=win, name='fixation2', vertices='cross',units='deg', 
-    size=(0.20, 0.20),
+    win=win, name='fixation2',units='deg', 
+    size=(0.20, 0.20), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-10.0, interpolate=True)
 fixation3 = visual.ShapeStim(
-    win=win, name='fixation3', vertices='cross',units='deg', 
-    size=(0.20, 0.20),
+    win=win, name='fixation3',units='deg', 
+    size=(0.20, 0.20), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-11.0, interpolate=True)
 key_resp_4 = keyboard.Keyboard()
 fixation = visual.ShapeStim(
-    win=win, name='fixation', vertices='cross',units='deg', 
-    size=(0.2, 0.2),
+    win=win, name='fixation',units='deg', 
+    size=(0.2, 0.2), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-13.0, interpolate=True)
@@ -332,8 +332,8 @@ image_2 = visual.ImageStim(
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-1.0)
 polygon_2 = visual.ShapeStim(
-    win=win, name='polygon_2', vertices='cross',units='deg', 
-    size=(0.2, 0.2),
+    win=win, name='polygon_2',units='deg', 
+    size=(0.2, 0.2), vertices='circle',
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-2.0, interpolate=True)

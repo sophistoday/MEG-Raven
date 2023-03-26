@@ -331,7 +331,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="None" val="cross" valType="str"/>
+        <Param name="shape" updates="None" val="circle" valType="str"/>
         <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -358,7 +358,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="None" val="cross" valType="str"/>
+        <Param name="shape" updates="None" val="circle" valType="str"/>
         <Param name="size" updates="constant" val="(0.20, 0.20)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -402,7 +402,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="None" val="cross" valType="str"/>
+        <Param name="shape" updates="None" val="circle" valType="str"/>
         <Param name="size" updates="constant" val="(0.2, 0.2)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -656,7 +656,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="None" val="cross" valType="str"/>
+        <Param name="shape" updates="None" val="circle" valType="str"/>
         <Param name="size" updates="constant" val="(0.2, 0.2)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
